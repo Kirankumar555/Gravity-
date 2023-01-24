@@ -75,7 +75,7 @@ def collision(p,q):
     np.draw()
     
 def ds(p,q):
-    distance_squared= (p.x-q.x)**2+(p.y-q.y)**2
+    distance_squared= (math.dist((p.x,p.y),(q.x,q.y)))**2
     if distance_squared >= (p.d+q.d):
         return distance_squared
     else:
