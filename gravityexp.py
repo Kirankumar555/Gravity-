@@ -72,11 +72,11 @@ def collision(p,q):
     np.dx=dx
     np.dy=dy
     planets.append(np)
-    np.draw()
+    #np.draw()
     
 def ds(p,q):
     distance_squared= (math.dist((p.x,p.y),(q.x,q.y)))**2
-    if distance_squared >= (p.d+q.d):
+    if distance_squared >= (p.d+q.d)**2:
         return distance_squared
     else:
         collision(p,q)
