@@ -58,9 +58,11 @@ def R_area(p,q):
     area = (p.d**2/4)*math.pi+(q.d**2/4)*math.pi
     return area
 def collision(p,q):
-    x=(p.x+q.x)/2
-    y=(p.y+q.y)/2
     mass=p.m+q.m
+    x = ((p.x) + (q.x))/2
+    y = ((p.y) + (q.y))/2
+    #x=cx/mass
+    #y=cy/mass
     dx=(((p.dx*p.m)+(q.dx*q.m))/mass)
     dy=((p.dy*p.m)+(q.dy*q.m))/mass
     
@@ -72,11 +74,11 @@ def collision(p,q):
     np.dx=dx
     np.dy=dy
     planets.append(np)
-    np.draw()
+    #np.draw()
     
 def ds(p,q):
     distance_squared= (math.dist((p.x,p.y),(q.x,q.y)))**2
-    if distance_squared >= (p.d+q.d):
+    if distance_squared >= (p.d+q.d)**2:
         return distance_squared
     else:
         collision(p,q)
